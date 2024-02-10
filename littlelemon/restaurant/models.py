@@ -9,7 +9,7 @@ class Booking(models.Model):
     BookingDate = models.DateTimeField()
 
     def __str__(self):
-        return str(self.BookingDate) + " - " + str(self.Name)
+        return f'{self.Name} - {str(self.BookingDate.strftime('%Y/%m/%d %H:%M:%S'))}'
 
 class Menu(models.Model):
     Title = models.CharField(max_length = 255)
