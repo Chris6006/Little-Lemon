@@ -1,0 +1,7 @@
+Create User: http://127.0.0.1:8000/auth/users/
+
+Note, to see as a Manager use this token:
+598182b8dc9f00fc0ff942c0c2c6edc6d38521d8
+
+To see as a normal user, use this token:
+387870b6bdba9a80076b3ed14819ebd04a12ec77
