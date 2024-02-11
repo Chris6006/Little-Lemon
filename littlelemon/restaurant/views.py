@@ -44,7 +44,16 @@ class BookingViewSet(generics.ListCreateAPIView):
             return BookingSerializerStaff
         return BookingSerializer
 
-
+class SingleBookingItemView(generics.RetrieveUpdateAPIView, generics.DestroyAPIView):
+    queryset = Booking.objects.all()
+    serializer_class = BookingSerializerStaff
+    #This part prevents anyone but SuperUsers and Managers do anything but seeing the bookings
+    def get_permissions(self):
+        permission_classes = []
+        if self.request.method != "GET" or self.request.method == "GET":
+            permission_classes = [IsSuperUser|IsManager]
+        return [permission() for permission in permission_classes]
+    
 class MenuItemsView(generics.ListCreateAPIView):
     queryset = Menu.objects.all()
     serializer_class = menuSerializer
