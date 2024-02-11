@@ -13,4 +13,4 @@ class BookingTest(TestCase):
     def test_get_item(self):
         current_datetime = datetime.now()
         item = Booking.objects.create(Name="JohnTest", No_of_guests = 5, BookingDate = current_datetime)
-        self.assertEqual(str(item), "JohnTest - " + current_datetime.strftime('%Y/%m/%d %H:%M:%S'))
+        self.assertEqual(str(item), "JohnTest - " + current_datetime.strftime('%Y/%m/%d %H:%M:%S') + " - No. of Guests: " + str(5))
